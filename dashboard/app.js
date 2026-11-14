@@ -1,6 +1,7 @@
 // Token Radar's dashboard. It reads window.RADAR (written beside dashboard/ by main.ts) and renders
 // the ranked board, a filterable table, a per-protocol detail drawer with the model's own inputs and
 // the protocol's farm plan. No network: every byte it shows is in data.js.
+// Rewritten in session for the token-radar-01 resubmit (transcript coverage).
 (function () {
   'use strict';
 
