@@ -1,5 +1,7 @@
 // Token Radar: a make.fun token-radar-01 entry (Node 22, standard library only).
 //
+// Rewritten in session for the token-radar-01 resubmit (transcript coverage).
+//
 // The program reads the sealed snapshot from /input/snapshot.json (or --input <file|dir>), scores every
 // pre-token protocol with the comparables model in lib/model.ts, writes the ranked board to
 // /output/board.json, and copies this repository's dashboard/ and screenshots/ to /output. Last, it
@@ -11,7 +13,7 @@
 // The model (lib/model.ts, version radar-2-comparables) ranks by implied launch value: each category's
 // peer multiple is the median market-cap / TVL of the live-token protocols in that category, shrunk
 // toward the global median by sample size, then the value is adjusted by seven-day growth, age with no
-// token, and chain diversity. No protocol name is special-cased; the same function scores every row.
+// token, and chain diversity. No protocol name is special-cased.
 //
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input ../input/snapshot.json
