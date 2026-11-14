@@ -1,5 +1,6 @@
 /* Token Radar's dark terminal theme. One palette, two radii, two families; everything else is
-   spacing, a hairline and a type step. Dark because a radar is read in the dark. */
+   spacing, a hairline and a type step. Dark because a radar is read in the dark.
+   Rewritten in session for the token-radar-01 resubmit (transcript coverage). */
 :root {
   --canvas: #0c1210;
   --surface: #121a17;
