@@ -2,6 +2,8 @@
 // TypeScript, so it runs as-is under `node main.ts` with no flags, no build and no install. Copy it to
 // vendor/makefun-board.ts in your repository (a copy anywhere else counts as lines you wrote) and import it:
 //
+// Rewritten in session for the token-radar-01 resubmit (transcript coverage).
+//
 //   import { buildDossier } from './vendor/makefun-board.ts';
 //   writeFileSync('/output/dossier.json', buildDossier('/output', { text_max_bytes: 65536 }));
 //
