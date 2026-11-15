@@ -1,15 +1,79 @@
 <!doctype html>
-<!-- Rewritten in session for the token-radar-01 resubmit (transcript coverage). -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Token Radar: pre-token protocols ranked by implied value</title>
+<title>Token Radar — Pre-Token Protocols Ranked by Implied Value</title>
 <link rel="stylesheet" href="app.css">
 </head>
 <body>
-<a class="skip" href="#board">Skip to the board</a>
-<main id="board" tabindex="-1" aria-busy="true"></main>
+<header class="top">
+  <div class="brand">
+    <span class="prompt">$</span><h1>TOKEN RADAR</h1>
+    <span class="tag">pre-token protocols, ranked by implied launch value</span>
+  </div>
+  <p class="meta" id="meta">loading snapshot…</p>
+</header>
+
+<nav class="tabs">
+  <button id="tab-board" class="tab active" type="button">BOARD</button>
+  <button id="tab-live" class="tab" type="button">LIVE TOKENS</button>
+  <span class="tab-note" id="tab-note"></span>
+</nav>
+
+<section class="toolbar" id="toolbar">
+  <input id="q" type="search" placeholder="search name or slug…" aria-label="search">
+  <select id="cat" aria-label="category"><option value="">all categories</option></select>
+  <select id="chain" aria-label="chain"><option value="">all chains</option></select>
+  <select id="sort" aria-label="sort">
+    <option value="rank">sort: rank</option>
+    <option value="name">sort: name</option>
+    <option value="tvl">sort: TVL</option>
+    <option value="change">sort: 7d change</option>
+    <option value="age">sort: age</option>
+    <option value="implied">sort: implied value</option>
+  </select>
+  <span class="count" id="count"></span>
+</section>
+
+<main>
+  <table id="board">
+    <thead><tr>
+      <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+      <th>Chains</th><th data-k="tvl">TVL</th><th data-k="change">7d</th><th data-k="age">Age</th>
+      <th data-k="implied">Implied value</th><th data-k="multiple">Multiple</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <table id="live" hidden>
+    <thead><tr>
+      <th>#</th><th>Protocol</th><th>Category</th><th>TVL</th><th>Market cap</th><th>mcap / TVL</th>
+    </tr></thead>
+    <tbody id="live-rows"></tbody>
+  </table>
+  <p class="empty" id="empty" hidden>No protocols match the current filter.</p>
+</main>
+
+<aside id="drawer" hidden>
+  <button id="close" type="button" aria-label="close">✕</button>
+  <h2 id="d-name"></h2>
+  <p class="d-sub" id="d-sub"></p>
+  <dl id="d-facts"></dl>
+  <h3>How the value is computed</h3>
+  <p id="d-math" class="d-math"></p>
+  <p id="d-check" class="d-check"></p>
+  <h3>Farm plan</h3>
+  <ol id="d-farm"></ol>
+</aside>
+
+<footer>
+  <p>Implied value = TVL × peer multiple × growth × maturity × chains. The peer multiple is the
+  median market-cap/TVL of the protocol's category's live-token peers, shrunk toward the global
+  median by sample size. A protocol is listed as "records no token" when its DefiLlama record
+  carries no token — that is the record's word, not proof it has none. Data: DefiLlama snapshot,
+  <span id="asof"></span>. Nothing here is investment advice.</p>
+</footer>
+
 <script src="../data.js"></script>
 <script src="app.js"></script>
 </body>
